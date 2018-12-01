@@ -15,12 +15,24 @@ if (process.argv.length > 1 && process.argv[1] === __filename) {
     let lines = input.split('\n');
     let linesInt = []
     let sum = 0 
-    var changes = lines.map( i => parseInt(i))
-    var frequency = changes.map ( i => sum = sum + i )
+    let found = false 
+    let prev = []
+    var changes = lines.map( i => parseInt(i)) 
+    while (found === false) {
+      var frequency = changes.map ( i => {
+        sum = sum + i
+        if (prev.includes(sum)) {
+            console.log(sum)
+            found = true 
+        } else {
+            prev.push(sum)
+        }
+        return sum
+          })
+          }
+      });
+    }
 
-    console.log(sum)
-  });
-}
 
 function sum(a, b) {
   return a + b;
