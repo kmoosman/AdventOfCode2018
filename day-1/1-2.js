@@ -16,16 +16,16 @@ if (process.argv.length > 1 && process.argv[1] === __filename) {
     let linesInt = []
     let sum = 0 
     let found = false 
-    let prev = []
-    var changes = lines.map( i => parseInt(i)) 
+    let prev = new Set([])
+    changes = lines.map( i => parseInt(i)) 
     while (found === false) {
-      var frequency = changes.map ( i => {
+      frequency = changes.map ( i => {
         sum = sum + i
-        if (prev.includes(sum)) {
+        if (prev.has(sum)) {
             console.log(sum)
             found = true 
         } else {
-            prev.push(sum)
+            prev.add(sum)
         }
         return sum
           })
