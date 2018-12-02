@@ -13,7 +13,6 @@ Get Input and main function run - wont run when unit testing
 if (process.argv.length > 1 && process.argv[1] === __filename) {
   fs.readFile(process.argv[2], 'utf8', function(err, input) {
     let lines = input.split('\n');
-    let linesInt = []
     let sum = 0 
     let found = false 
     let prev = new Set([])
